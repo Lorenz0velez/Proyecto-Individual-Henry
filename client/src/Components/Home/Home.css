@@ -18,14 +18,26 @@
 
 }
 
-.pagination{
+/* .pagination{
     display:flex;
     flex-direction: row;
     justify-content: center;
     background-color: black;
     color: aliceblue;
 
-}
+} */
+.pagination {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+    /* min-width: 100%;
+    max-width: 100%; */
+    margin-bottom: 20px;
+  }
 
 .previousNext{
     justify-content: space-between;

@@ -41,7 +41,7 @@ export default function Pagination({allCountries, countriesPerPage, pagination})
     }
 
     return(
-        <nav>
+        <nav className='nav'>
             <ul className='paginationBar'>
                 {
                     numberPage &&

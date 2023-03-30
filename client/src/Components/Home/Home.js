@@ -43,7 +43,16 @@ export default function Home(){
     return(
         <div className="conteinerHome">
 
+
             <NavBar setCurrentPage={setCurrentPage}/>
+
+            <div>
+                <Pagination
+                allCountries={(countriesFiltered.length ? countriesFiltered : allCountries ).length}
+                countriesPerPage={countriesPerPage}
+                pagination={paginado}
+                />
+            </div>
 
             {
                 // countries ? countries : allCountries.map((c)=>{
@@ -60,13 +69,13 @@ export default function Home(){
                 })
             }
 
-            <div>
+            {/* <div>
                 <Pagination
                 allCountries={(countriesFiltered.length ? countriesFiltered : allCountries ).length}
                 countriesPerPage={countriesPerPage}
                 pagination={paginado}
                 />
-            </div>
+            </div> */}
         </div>
     )
 }

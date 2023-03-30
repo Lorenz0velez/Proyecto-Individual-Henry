@@ -11,17 +11,10 @@ export const CONTINENT_FILTER = "CONTINENT_FILTER";
 export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES";
 
 
-// export const getAllCountries = () => async dispatch => {
-//     return fetch(`http://localhost:3001/countries`)
-//     .then(response => response.json())
-//     .then(json => {
-//         dispatch({ type: GET_ALL_COUNTRIES, payload: json})
-//     })
-// };
 export const getAllCountries = () => {
   return async function(dispatch){
     try{
-      let json = axios.get(`http://localhost:3001/countries`)
+      let json = axios.get(`/countries`)
       return dispatch({
         type: GET_ALL_COUNTRIES,
         payload: (await json).data
@@ -36,7 +29,7 @@ export const getAllCountries = () => {
 export const getCountryByName = (name) =>{
     return async function(dispatch){
         try {
-            var json = axios.get(`http://localhost:3001/countries?name=${name}`)
+            var json = axios.get(`/countries?name=${name}`)
             return dispatch({
                 type: GET_COUNTRY_BY_NAME,
                 // payload: json.data
@@ -52,7 +45,7 @@ export const getCountryByName = (name) =>{
 export const getCountryById = (id) =>{
     return async function (dispatch) {
         try {
-            var json = axios.get(`http://localhost:3001/countries/${id}`)
+            var json = axios.get(`/countries/${id}`)
             return dispatch({
                 type: GET_COUNTRY_BY_ID,
                 payload: (await json).data
@@ -90,21 +83,62 @@ export const filter_mayor_poblacion = () => {
     }
   }
 
-  export const createNewActivity22 = (country) => {
-    return async function (dispatch){
-      try {
-        const response = await axios.post(`http://localhost:3001/activities`)
-        dispatch({
-          type: CREATE_ACTIVITY,
-          payload: response.data,
-        })
-        alert("Creado correctamente");
-      } catch (error) {
-        alert("Algo salio mal");
-        console.log(error)
-      }
-    }
+
+export const createNewActivity = (payload) => {
+  return async function (dispatch) {
+    try {
+      var response = await axios.post(`/activities`, payload);
+      return response
+    } catch (e) {
+      alert(e)
+    }        
   }
+};
+
+  export function getAllActivities(){
+    return async function (dispatch){
+        var json=await axios.get(`/activities`)
+        return dispatch({
+          type: GET_ALL_ACTIVITIES,
+          payload: json.data
+        });
+    }
+  } 
+
+  export const filterByContinent = (payload) => {
+    return {
+      type: CONTINENT_FILTER,
+      payload
+    }
+};
+
+
+
+//////////////////////////////////////////////////////////////////////////----------------------------------------------------------------
+// export const getAllCountries = () => async dispatch => {
+//     return fetch(`http://localhost:3001/countries`)
+//     .then(response => response.json())
+//     .then(json => {
+//         dispatch({ type: GET_ALL_COUNTRIES, payload: json})
+//     })
+// };
+
+
+// export const createNewActivity22 = (country) => {
+//   return async function (dispatch){
+//     try {
+//       const response = await axios.post(`/activities`)
+//       dispatch({
+//         type: CREATE_ACTIVITY,
+//         payload: response.data,
+//       })
+//       alert("Creado correctamente");
+//     } catch (error) {
+//       alert("Algo salio mal");
+//       console.log(error)
+//     }
+//   }
+// }
 
 // export const createNewActivity = (country) => async (dispatch) => {
 
@@ -139,33 +173,4 @@ export const filter_mayor_poblacion = () => {
 //     console.log(error)
 //     }
 //   };
-export const createNewActivity = (payload) => {
-  return async function (dispatch) {
-    try {
-      var response = await axios.post(`http://localhost:3001/activities`, payload);
-      return response
-    } catch (e) {
-      alert(e)
-    }        
-  }
-};
-
-  export function getAllActivities(){
-    return async function (dispatch){
-        var json=await axios.get(`http://localhost:3001/activities`)
-        return dispatch({
-          type: GET_ALL_ACTIVITIES,
-          payload: json.data
-        });
-    }
-  } 
-
-  export const filterByContinent = (payload) => {
-    return {
-      type: CONTINENT_FILTER,
-      payload
-    }
-};
-
-
   

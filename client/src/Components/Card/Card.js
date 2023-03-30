@@ -5,21 +5,6 @@ import { Link } from "react-router-dom";
 
 export default function Card({name, flag, continent, id}){
 
-    // function consologueando(){
-    //     console.log('name:', name)
-    //     console.log('image:', image)
-    //     console.log('temperaments:', temperaments)
-    //     console.log('weight:', weightMax)
-    //     console.log('weight:', weightMin)
-    //     console.log('id:', id) 
-    // }
-
-    // const tempSplit =()=> temperaments.split(",");
-    // consologueando();
-    // const dogsDetail = useSelector(state => state.dogsDetail);
-    // const dispatch = useDispatch();
-    
-
 
     return(
         <div className='conteiner' >

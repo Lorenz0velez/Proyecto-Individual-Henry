@@ -66,21 +66,7 @@
    */
   /*----------------------------------------------------*/
 
-
-   .paginationBar {
-    display: flex;
-    /* justify-content: center; */
-    list-style: none;
-    margin: 1rem 0;
-    padding: 0;
-
-    margin: 40px;
-    /* display: flex; */
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-  }
-  
-  .paginationNumber {
+  /* .paginationNumber {
     margin: 0 0.5rem;
   }
   
@@ -88,10 +74,13 @@
     font-size: 0.8rem;
     background: none;
     border: none;
-    color: #555;
+    color: #ffffff;
     cursor: pointer;
     padding: 0.5rem;
     text-align: center;
+    
+
+    background-color: #0000fd;
   }
   
   .paginationNumber button:focus {
@@ -103,10 +92,67 @@
     color: #fff;
   }
 
-  /* ------------ */
+ 
   .paginationNumber.current-page button {
     color: rgb(253, 253, 253);
     background-color: black;
   }
   
+   */
+
+   .paginationBar {
+    display: flex;
+    /* justify-content: center; */
+    list-style: none;
+    margin: 1rem 0;
+    padding: 0;
+
+    /* background-color: black;
+    padding: 3px; */
+
+    margin: 40px;
+    /* display: flex; */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+
+  }
   
+   .paginationNumber {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #eee;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .paginationNumber button {
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .paginationNumber.current-page {
+    /* background-color: #4CAF50; */
+    background-color: #0000fd;
+  }
+  
+  .paginationNumber.current-page button {
+    color: #fff;
+  }
+  
+
+  .nav {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    /* height: 80px; */
+    position: relative;
+  }
