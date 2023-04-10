@@ -8,7 +8,8 @@ import axios from 'axios';
 import LandingPage from './Components/LandingPage/LandingPage';
 
 
-axios.defaults.baseURL = "http://localhost:3001/" ;
+// axios.defaults.baseURL = "http://localhost:3001/" ;
+axios.defaults.baseURL = "https://proyecto-individual-henry-dusky.vercel.app/" ;
 
 function App() {
   return (

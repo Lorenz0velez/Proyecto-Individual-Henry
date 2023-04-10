@@ -37,7 +37,7 @@ const getCountryById = async (id) => {
   const allCountries = await getCountries();
   const apiCountry = allCountries.find((pais) => pais.id == id);
   if (!apiCountry) {
-    throw new Error(`Dog's id not found`);
+    throw new Error(`Country id not found`);
   }
   return apiCountry;
 };
