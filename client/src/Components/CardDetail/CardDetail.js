@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { getCountryById } from "../../Redux/Actions/actions";
-import axios from "axios";
+// import axios from "axios";
 import './CardDetail.css'
 
 

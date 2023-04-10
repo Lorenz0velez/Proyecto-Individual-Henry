@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import {React} from 'react';
 
 import './Navbar.css';
 // import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom';
 import SearchBar2 from '../SearchBar/SearchBar';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { filterByContinent, filter_A_TO_Z, filter_mayor_poblacion, filter_menor_poblacion, filter_Z_TO_A, getAllCountries } from '../../Redux/Actions/actions';
 // import { filterByStored, filterOfTemperaments, filter_A_TO_Z, filter_mayor_peso, filter_menor_peso, filter_Z_TO_A, getAllDogs, getTemperaments, newBreeds, sortByWeight, Z_to_A } from '../../Redux/Actions/actions';
 
@@ -13,9 +13,9 @@ export default function NavBar({setCurrentPage, setOrden}) {
 
   const dispatch = useDispatch();
 
-  const [state, setState] = useState();
-  const allCountries = useSelector(state => state.allCountries);
-  const countriesFiltered = useSelector(state => state.countriesFiltered);
+  // const [state, setState] = useState();
+  // const allCountries = useSelector(state => state.allCountries);
+  // const countriesFiltered = useSelector(state => state.countriesFiltered);
   
 
   const hanldeBackToOriginalHome = () => {
@@ -30,6 +30,10 @@ export default function NavBar({setCurrentPage, setOrden}) {
     setCurrentPage(1)
   }
 
+  const handleFilterByLowPopulation = () =>{
+    dispatch(filter_menor_poblacion())
+    setCurrentPage(1)
+  }
 
     return (
     <header className="navbar">
@@ -51,7 +55,7 @@ export default function NavBar({setCurrentPage, setOrden}) {
               <button onClick={ () => dispatch(filter_A_TO_Z()) } >{`A to Z`}</button>
               <button onClick={ () => dispatch(filter_Z_TO_A()) } >{`Z to A`}</button>
               <button onClick={ () => dispatch(filter_mayor_poblacion()) } >{`MAYOR POBLACION`}</button>
-              <button onClick={ () => dispatch(filter_menor_poblacion()) } >{`MENOR PPOBLACION`}</button>
+              <button onClick={ handleFilterByLowPopulation } >{`MENOR PPOBLACION`}</button>
               {/* <button value='All' key='New Breeds' >{`NEW BREEDS`}</button> */}
             </div>
           </div>

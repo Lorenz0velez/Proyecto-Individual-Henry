@@ -1,6 +1,6 @@
-import{ React, useState} from 'react';
+import{ React, useEffect, useState} from 'react';
 // import { Recipes } from './searchBar-prueba/Recipes';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getAllCountries, getCountryByName } from '../../Redux/Actions/actions';
 // import { getAllDogs, getDogsByName } from '../../Redux/Actions/actions';
 import './SearchBar.css';
@@ -17,9 +17,17 @@ function SearchBar2({setCurrentPage}){
     const handleOnChange = (e) => {
         e.preventDefault();
         setState(e.target.value);
-        if(!state) dispatch(getAllCountries())
+        if(!state || state === null || state === undefined){
+            dispatch(getAllCountries())
+        }
         console.log(state)
     }
+
+    useEffect(() => {
+        if (state === '') {
+          dispatch(getAllCountries());
+        }
+      }, [state, dispatch]);
 
 
     const handleSubmit = (e) => {

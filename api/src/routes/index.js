@@ -33,20 +33,6 @@ router.get('/countries/:id', async (req, res, next) =>{
   }
 })
 
-
-const express = require('express');
-const app = express();
-
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-// app.use((req, res, next) => {
-//   if (req.body && req.body.countries && !Array.isArray(req.body.countries)) {
-//     req.body.countries = [req.body.countries];
-//   }
-//   next();
-// });
-
-
 router.post('/activities', postActivity);
 
 

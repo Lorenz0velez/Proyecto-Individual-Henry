@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 export default function Card({name, flag, continent, id}){
-
+ 
 
     return(
         <div className='conteiner' >
@@ -25,9 +25,9 @@ export default function Card({name, flag, continent, id}){
                 <div className="bay" >
                 <button className="button1">
                    LEER MAS
-                <div className="arrow-wrapper">
+                {/* <div className="arrow-wrapper">
                 <div className="arrow"></div>
-                </div>
+                </div> */}
                 </button>
                 </div>
                 </Link> 

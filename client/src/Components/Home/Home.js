@@ -28,7 +28,7 @@ export default function Home(){
     },[dispatch])
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [countriesPerPage, setCountriesPerPage] = useState(10);
+    const [countriesPerPage] = useState(10);
 
     const paginado = (actualPage) =>{
         setCurrentPage(actualPage)
@@ -38,7 +38,7 @@ export default function Home(){
     const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
     
     // const currentCountries = allCountries?.slice(indexOfFirstCountry, indexOfLastCountry)
-    const currentCountries = (countriesFiltered.length ? countriesFiltered : allCountries) .slice(indexOfFirstCountry, indexOfLastCountry)
+    const currentCountries = (countriesFiltered.length ? countriesFiltered : allCountries).slice(indexOfFirstCountry, indexOfLastCountry)
 
     return(
         <div className="conteinerHome">

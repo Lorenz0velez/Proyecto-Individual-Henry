@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createDog, createNewActivity, createNewActivity22, create_dog, getAllActivities, getAllCountries, getTemperaments } from "../../Redux/Actions/actions";
+import { createNewActivity, getAllActivities, getAllCountries } from "../../Redux/Actions/actions";
 import './CreateActivity.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import { useHistory } from "react-router-dom";
 import styles from './CreateActivity.module.css'; 
+// import { useHis } from "react-router-dom";
+
 
 
 export default function CreateActivity () {
@@ -13,7 +14,7 @@ export default function CreateActivity () {
     const allActivities = useSelector((state) => state.allActivities)
     // const countries = useSelector((state) => state.countries);
     const allCountries = useSelector((state) => state.allCountries);
-    const history = useHistory();
+    // const history = useHistory();
     const [errors, setErrors] = useState({});
     const [buttonEnabled, setButtonEnabled] = useState(false);
     
@@ -102,13 +103,6 @@ export default function CreateActivity () {
         }))
     }
 
-    function handleDelete(e){
-        setInput({
-            ...input,
-            countries: input.countries.filter(c => c !== e)
-        })
-    }
-
     function handleSubmit(e) {
         e.preventDefault();
         let validateName = allActivities?.find(a => a.name === (input.name))
@@ -124,7 +118,7 @@ export default function CreateActivity () {
                 season:"",
                 countries:""
             })
-            history.push('/countries')    
+            // history.push('/countries')    
             console.log(input)
             console.log(setInput)        
         }        
@@ -176,14 +170,41 @@ export default function CreateActivity () {
                     </div>
                     <br></br>
                     <div>
-                        <label>Duration: </label>
-                        <input
+                        <label>Duration(hours): </label>
+                        {/* <input
                         type = "text"
                         value = {input.duration}
                         name = "duration"
                         onChange = {handleChange}
                         className={styles.inputText}
-                        />
+                        /> */}
+                        <select defaultValue = {'default'} name = "duration" onChange = {e => handleSelect(e)}>
+                            <option value ='default' disabled>Duration</option>
+                            <option value ="1">1</option>
+                            <option value ="2">2</option>
+                            <option value ="3">3</option>
+                            <option value ="4">4</option>
+                            <option value ="5">5</option>
+                            <option value ="6">6</option>
+                            <option value ="7">7</option>
+                            <option value ="8">8</option>
+                            <option value ="9">9</option>
+                            <option value ="10">10</option>
+                            <option value ="11">11</option>
+                            <option value ="12">12</option>
+                            <option value ="13">13</option>
+                            <option value ="14">14</option>
+                            <option value ="15">15</option>
+                            <option value ="16">16</option>
+                            <option value ="17">17</option>
+                            <option value ="18">18</option>
+                            <option value ="19">19</option>
+                            <option value ="20">20</option>
+                            <option value ="21">21</option>
+                            <option value ="22">22</option>
+                            <option value ="23">23</option>
+                            <option value ="24">24</option>
+                        </select>
                         {errors.duration && (
                             <p className = "p">{errors.duration}</p>
                         )}
@@ -207,7 +228,7 @@ export default function CreateActivity () {
                     <br></br>
                     <div>
                     <select defaultValue = {'default'} name = "relatedCountries" onChange = {e => handleCountrySelect(e)}>
-                            <option value = 'default' disabled>Select Country</option>
+                            <option value = 'default' disabled>Select Two Country</option>
                                 {allCountries?.map(c => (
                                     <option key = {c.name} value = {c.name}>{c.name}</option>
                                 ))}                    
