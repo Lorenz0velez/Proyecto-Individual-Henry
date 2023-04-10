@@ -68,14 +68,6 @@ export default function Home(){
                     )
                 })
             }
-
-            {/* <div>
-                <Pagination
-                allCountries={(countriesFiltered.length ? countriesFiltered : allCountries ).length}
-                countriesPerPage={countriesPerPage}
-                pagination={paginado}
-                />
-            </div> */}
         </div>
     )
 }
