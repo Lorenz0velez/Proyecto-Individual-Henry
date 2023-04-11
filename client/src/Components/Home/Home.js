@@ -56,7 +56,7 @@ export default function Home(){
 
             {
                 // countries ? countries : allCountries.map((c)=>{
-                    currentCountries.map((c)=>{
+                    currentCountries?.map((c)=>{
                     return(
                         <Card
                         key={c.id}
