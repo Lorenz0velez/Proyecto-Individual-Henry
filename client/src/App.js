@@ -9,7 +9,9 @@ import LandingPage from './Components/LandingPage/LandingPage';
 
 
 // axios.defaults.baseURL = "http://localhost:3001/" ; 
-axios.defaults.baseURL = "https://proyecto-individual-henry-production-b38e.up.railway.app/";
+// axios.defaults.baseURL = "https://proyecto-individual-henry-production-b38e.up.railway.app/"; viejo
+axios.defaults.baseURL = "https://proyecto-individual-henry-production-abc9.up.railway.app/"; //actualizando
+// axios.defaults.baseURL = "https://proyecto-individual-henry-production-abc9.up.railway.app" nuevo 
 
 function App() {
   return (
